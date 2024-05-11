@@ -1,0 +1,25 @@
+[{
+  "_identificación": {
+    "$oid": "641135ec22ce37812ec903ad"
+  },
+  "nombre_equipo": "Bogota\" ",
+  "nombre_entrenado": "Fabio Martinez"
+},{
+  "_identificación": {
+    "$oid": "6411365522ce37812ec903ae"
+  },
+  "nombre_equipo": "Tolima",
+  "nombre_entrenado": "Alejandro layton"
+},{
+  "_identificación": {
+    "$oid": "6411366c22ce37812ec903af"
+  },
+  "nombre_equipo": "Medellin",
+  "nombre_entrenado": "Pablo Gomez "
+},{
+  "_identificación": {
+    "$oid": "641136af22ce37812ec903b0"
+  },
+  "nombre_equipo": "Cali",
+  "nombre_entrenado": "Hugo Gonzales"
+}]

@@ -1,0 +1,155 @@
+[{
+  "_identificación": {
+    "$oid": "6411143b22ce37812ec90390"
+  },
+  "nombre_deportista": "Carlo Torres",
+  "equipo": "Tolima",
+  "posicion": "Armador"
+},{
+  "_identificación": {
+    "$oid": "64111a3f22ce37812ec90391"
+  },
+  "nombre_deportista": "Marlo Perez",
+  "equipo": "Tolima",
+  "posicion": "Rematador externo"
+},{
+  "_identificación": {
+    "$oid": "6411303a22ce37812ec90395"
+  },
+  "nombre_deportista": "Eduardo Lopez",
+  "equipo": "Tolima",
+  "posicion": "Rematador opuesto"
+},{
+  "_identificación": {
+    "$oid": "6411312e22ce37812ec90396"
+  },
+  "nombre_deportista": "Espitia Romero",
+  "equipo": "Tolima",
+  "posicion": "Rematador medio"
+},{
+  "_identificación": {
+    "$oid": "6411315722ce37812ec90397"
+  },
+  "nombre_deportista": "Mario Contreras",
+  "equipo": "Tolima",
+  "posicion": "Líbero"
+},{
+  "_identificación": {
+    "$oid": "641131e722ce37812ec90398"
+  },
+  "nombre_deportista": "Gabriel Palacio",
+  "equipo": "Tolima",
+  "posicion": "Especialista defensivo"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec90399"
+  },
+  "nombre_deportista": "Edwin Torres",
+  "equipo": "Bogota",
+  "posicion": "Armador"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039a"
+  },
+  "nombre_deportista": "Lorenzo Perez",
+  "equipo": "Bogota",
+  "posicion": "Rematador externo"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039b"
+  },
+  "nombre_deportista": "Carlos Guzman",
+  "equipo": "Bogota",
+  "posicion": "Rematador opuesto"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039c"
+  },
+  "nombre_deportista": "Brandon Arroyo",
+  "equipo": "Bogota",
+  "posicion": "Rematador medio"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039d"
+  },
+  "nombre_deportista": "Isaias Dias",
+  "equipo": "Bogota",
+  "posicion": "Líbero"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039e"
+  },
+  "nombre_deportista": "Orbey Baron",
+  "equipo": "Medellin",
+  "posicion": "Armador"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec9039f"
+  },
+  "nombre_deportista": "Santiago Duarte",
+  "equipo": "Medellin",
+  "posicion": "Rematador externo"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a0"
+  },
+  "nombre_deportista": "Tiago Silva",
+  "equipo": "Medellin",
+  "posicion": "Rematador opuesto"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a1"
+  },
+  "nombre_deportista": "Juan Cortez",
+  "equipo": "Medellin",
+  "posicion": "Rematador medio"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a2"
+  },
+  "nombre_deportista": "Erin Rojas",
+  "equipo": "Medellin",
+  "posicion": "Líbero"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a3"
+  },
+  "nombre_deportista": "Jhurgen Flojes",
+  "equipo": "Medellin",
+  "posicion": "Especialista defensivo"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a4"
+  },
+  "nombre_deportista": "Fransisco Baltazar",
+  "equipo": "Cali",
+  "posicion": "Armador"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a5"
+  },
+  "nombre_deportista": "Daniel Gomez",
+  "equipo": "Cali",
+  "posicion": "Rematador externo"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a6"
+  },
+  "nombre_deportista": "Diego Sanchez",
+  "equipo": "Cali",
+  "posicion": "Rematador opuesto"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a6"
+  },
+  "nombre_deportista": "Diego Sanchez",
+  "equipo": "Cali",
+  "posicion": "Rematador opuesto"
+},{
+  "_identificación": {
+    "$oid": "641132c822ce37812ec903a6"
+  },
+  "nombre_deportista": "Diego Sanchez",
+  "equipo": "Cali",
+  "posicion": "Rematador opuesto"
+}]

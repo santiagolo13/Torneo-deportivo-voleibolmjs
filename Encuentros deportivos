@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "64126df10a99162a59b60f9b"
+  },
+  "Nombre_Encuentro_D": "Partido 1",
+  "Dureacion_Partido": 2,
+  "Nombre_Arbitro": "Mario Hugo",
+  "equipo_que_juega_1": "Cali",
+  "equipo_que_juega_2": "Medellin"
+},{
+  "_id": {
+    "$oid": "64126df10a99162a59b60f9c"
+  },
+  "Nombre_Encuentro_D": "Partido 2",
+  "Dureacion_Partido": 2,
+  "Nombre_Equipo": "Bolivia",
+  "Nombre_Arbitro": "Maria Hernandez"
+},{
+  "_id": {
+    "$oid": "64126df10a99162a59b60f9d"
+  },
+  "Nombre_Encuentro_D": "ganador del partido\\norte",
+  "Dureacion_Partido": 2,
+  "Nombre_Equipo": "Brasil",
+  "Nombre_Arbitro": "Alison hairo"
+}]

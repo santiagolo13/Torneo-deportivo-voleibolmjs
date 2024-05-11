@@ -1,0 +1,25 @@
+[{
+  "_identificasion": {
+    "$oid": "6415bf7ec72591e1b7940790"
+  },
+  "nombre_de_equipo": "Medellin",
+  "numero_de_jugadores": 10
+},{
+  "_identificasion": {
+    "$oid": "6415bf7ec72591e1b7940791"
+  },
+  "nombre_de_equipo": "Bogota",
+  "numero_de_jugadores": 9
+},{
+  "_identificasion": {
+    "$oid": "6415bf7ec72591e1b7940792"
+  },
+  "nombre_de_equipo": "Tolima",
+  "numero_de_jugadores": 11
+},{
+  "_identificasion": {
+    "$oid": "6415bf7ec72591e1b7940793"
+  },
+  "nombre_de_equipo": "cali",
+  "numero_de_jugadores": 12
+}]

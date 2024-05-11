@@ -1,0 +1,45 @@
+[{
+  "_identificación": {
+    "$oid": "64128d500a99162a59b60ff5"
+  },
+  "nombre_equipo": "Bogota",
+  "posicion": 1,
+  "numero_bloqueos": 20,
+  "numero_errores_cometidos": 17,
+  "numero_puntos_anotados": 45,
+  "numero_saques": 15,
+  "numero_sets": 10
+},{
+  "_identificación": {
+    "$oid": "64128d500a99162a59b60ff6"
+  },
+  "nombre_equipo": "Medellin",
+  "posicion": 2,
+  "numero_bloqueo": 12,
+  "numero_errores_cometidos": 23,
+  "numero_puntos_anotados": 21,
+  "numero_saques": 12,
+  "numero_sets": 34
+},{
+  "_identificación": {
+    "$oid": "64128d500a99162a59b60ff7"
+  },
+  "nombre_equipo": "tolima",
+  "posicion": 3,
+  "numero_bloqueo": 21,
+  "numero_errores_cometidos": 34,
+  "numero_puntos_anotados": 21,
+  "numero_saques": 16,
+  "numero_sets": 26
+},{
+  "_identificación": {
+    "$oid": "64128d500a99162a59b60ff8"
+  },
+  "nombre_equipo": "cali",
+  "posicion": 4,
+  "numero_bloqueo": 5,
+  "numero_errores_cometidos": 41,
+  "numero_puntos_anotados": 12,
+  "numero_saques": 12,
+  "numero_sets": 10
+}]

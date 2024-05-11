@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "663a35145baa81b177bf5712"
+  },
+  "_identificasion": {
+    "$oid": "64127a8b0a99162a59b60fa2"
+  },
+  "nombre_Arbitro": "santiago lopez",
+  "nombre_partido": "Partido 1",
+  "nombre_equipo1": "Cali",
+  "nombre_equipo2": "medellin"
+},{
+  "_id": {
+    "$oid": "64127a8b0a99162a59b60fa3"
+  },
+  "Nombre_Arbitro": "julian palacios",
+  "Nombre_Encuentro": "Partido 2",
+  "nombre_equipo1": "Bogota",
+  "nombre_equipo2": "Tolima"
+},{
+  "_id": {
+    "$oid": "64127a8b0a99162a59b60fa4"
+  },
+  "Nombre_Arbitro": "michel collazos",
+  "Nombre_Encuentro": "Partido 3",
+  "nombre_equipo1": "Medellin",
+  "nombre_equipo2": "Bogota"
+}]

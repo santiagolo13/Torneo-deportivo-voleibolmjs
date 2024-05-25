@@ -20,15 +20,15 @@ Nodos Segundarios
 ? Replica los datos obtenidos en el nodo maestro o primario.
 ? Se actualiza asincrónicamente.
 ? Se puede configurar para que solo acepte solicitudes de lectura y denegando las solicitudes de escritura.
-Diagrama de replicación:
-2.1. creación de replicaset.
+
+// guntamos los comandos.  
 >Show dbs
-con este comando nos permite crear el entorno de replicación.
+> use voleibolmjs; 
+Utilizamos la base de datos voleibolmjs.
+
+// // Paso 1: Creación del Conjunto de Réplicas
 > voleibolmjsReplicaSet=new ReplSetTest({name:"REPLICAVOLEIVOLMJS",nodes:3})
 Este comando nos permitirá crear un conjunto de 3 réplicas.
-El Sistema nos crea tres puertos.
-> voleibolmjsReplicaSet=new ReplSetTest({name:"REPLICAVOLEIBOLMJS",nodes:3})
-Con este comando inicializamos las réplicas.
 voleibolmjsReplicaSet.starSet()
 Con este comando veremos la configuración de cada nodo del grupo de réplica y sus conexiones, en lo siguiente vemos cada nodo y sus conexiones.
 Nodo # 1:
@@ -38,30 +38,41 @@ Conexiones:
 * “DESKTOP-4I68KFA:20000”
 * “DESKTOP-4I68KFA:20001”
 * “DESKTOP-4I68KFA:20002”
+
+// paso 3: Arranca el procesos mongoDB de la replica.
 > voleibolmjsReplicaset.initiate()
 Este comando nos permite iniciar con la replicación de los datos.
+
+// Paso 4: Prueba de Grupo de Réplica
+// Este comando nos permite conectar al nodo #1 puerto 20000
 > conn=new Mongo("DESKTOP-4I68KFA:20000")
-Este comando nos permite conectar al nodo #1 puerto 20000
 > testDB=conn.getDB("voleibolmjs")
-Nos conectamos con la base de datos voleibolmjs.
+Nos conectamos con la base de datos voleibolmjs
+
+// Comprobamos si es el nodo primario.
 > testDB.isMaster()
 Le preguntamos al nodo #1 o puerto 20000 si es el nodo principal o maestro, la respuesta es verdadero.
-> use voleibolmjs; - > show collections;
-Utilizamos la base de datos voleibolmjs y consultamos sus colecciones.
+
+// Paso 5: Inserrar un conjunto de Datos en el Nodo Primario
 > testDB.Deportistas.insert({})
 Con este comando ingresamos datos a la colección DEPORTISTAS en la base de datos voleibolmjs, lo estamos aplicando en el nodo principal.
 > testDB.Deportistas.count();
 > testDB.Deportistas.find().pretty();
 Con estos comandos nos permites verificar la cantidad de información y que información insertamos en la colección que se encuentra en el nodo principal.
+
+// Paso 6: Comprobación de la Réplica sobre en Nodos Secundarios
 > connSecondary=new Mongo("DESKTOP-4I68KFA:20001")
 Nos conectamos al nodo #2 con el fin para verificar que la información que insertamos en el nodo primario esta replicando en los demás nodos.
 > secondaryTestDB=connSecondary.getDB("voleibolmjs")
 Nos conectamos a la base de datos voleibolmjs.
+
+// Comprobamos si este nodo es el secundario
 > secondaryTestDB.isMaster()
-Preguntamos al nodo si es el principal, la respuesta es FALSO
 > secondaryTestDB.Deportistas.count()
 > secondaryTestDB.Deportistas.find().pretty()
 Con estos comandos verificamos que la información que ingresamos en el nodo principal se encuentra replicada en el nodo #2.
+
+// paso 7 Detener el nodo primario
 > connPrimary=new Mongo("DESKTOP-4I68KFA:20000")
 > primaryDB = connPrimary.getDB(“voleibolmjs”)
 Nos conectamos al nodo #1 para proceder a detenerlo, esto con el fin de realizar una simulación de fallo, con el fin de comprobar que los demás nodos quedan funcionales.
@@ -69,9 +80,13 @@ Nos conectamos al nodo #1 para proceder a detenerlo, esto con el fin de realizar
 Le preguntamos al nodo #1 o puerto 20000 si es el nodo principal o maestro, la respuesta es verdadero.
 > primaryDB.admin.Command({shutdown:1});
 Con el comando detenemos el funcionamiento del nodo #1 puerto 20000.
+
+// paso 8: comprobacion del nuevo nodo primario
 > connNewPrimary=new Mongo("DESKTOP-4I68KFA:20001")
 Nos conectamos a un nuevo nodo primario, en este caso es el nodo #2 o puerto 20001.
 > newPrimaryDB.isMaster()
-Consultamos si el nuevo nodo primario, el nodo #2 es el principal o maestro, la respuesta es VERDADERO.
+Consultamos si el nuevo nodo primario, el nodo #2 es el principal o maestro, la respuesta es falso.
+
+//paso 9: Detener el replicaSet de pruebas
 > voleibolmjsReplicaSet.stopSet()
 Con el comando detenemos la replicación de la base de datos EVENTO DEPORTIVO.

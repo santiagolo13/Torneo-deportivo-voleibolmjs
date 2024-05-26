@@ -125,29 +125,26 @@ testDB.Deportistas.insert([
 Resultados: Los datos se insertan correctamente en el nodo primario.
 Análisis: Verifica si los datos se replican automáticamente a los nodos secundarios.
 
-•	Caso de Prueba 3: Comprobación de la Réplica en Nodos Secundarios
+•	Caso de Prueba 3: Validar con prueba de conexión del nodo primario y la promoción de algún de los nodos secundarios a primario. 
 Código de la prueba:
-Conexión al nodo secundario del grupo de réplica
-connSecondary = new Mongo(“DESKTOP-4I68KFA:20001");
-secondaryTestDB = connSecondary.getDB("voleibolmjs");
+// Detener específicamente el nodo primario para simular una caída
+connPrimary = new Mongo("DESKTOP-4I68KFA:20000");
+primaryDB = connPrimary.getDB("voliebolmjs");
 
-Comprobación si el nodo secundario es maestro
-secondaryTestDB.isMaster();
+// Comprobamos si este nodo es el primario antes de detenerlo
+primaryDB.isMaster();
+
+// Ahora detenemos el nodo primario
+MiejReplicaSet.stop(0);
 
 Resultados: Se espera que el nodo secundario sea un nodo de réplica y no el maestro.
 Análisis: Verifica si la replicación asincrónica está funcionando adecuadamente.
 
-•	Caso de Prueba 4: Prueba de Conmutación por Error (Failover)
+•	Caso de Prueba 4: Verificación de cuál de los nodos secundarios es el primario.
 Código de prueba:
-Detener específicamente el nodo primario para simular una caída
-connPrimary = new Mongo("localhost:27017");
+connPrimary = new Mongo("DESKTOP-4I68KFA:20001");
 primaryDB = connPrimary.getDB("voleibolmjs");
-
-Comprobamos si este nodo es el primario antes de detenerlo
 primaryDB.isMaster();
-
-Ahora detenemos el nodo primario
-voleibolmjsReplicaSet.stop(0);
 
 Resultados: Se espera que el nodo secundario tome el rol de primario después de la caída.
 Análisis: Verifica cómo el conjunto de réplicas maneja la conmutación por error y cómo se restablece la disponibilidad.

@@ -1,3 +1,5 @@
+// ACTIVIDAD 2- CONCEPTOS Y COMANDOS BÁSICOS DE LA REPLICACIÓN EN BASE DE DATOS NOSQL
+//
 Requerimientos no funcionales.
 El proyecto elaborado requiere tener acceso a la base de datos con el nombre de voleibolmjs las 24 horas los 7 días de la semana, con el fin de garantizar dicho acceso y disponibilidad completa se tendrán en cuenta los siguientes requerimientos:
 ? Como requerimiento principal es mantener el funcionamiento permanente de la base de datos voleibolmjs y sus colecciones.

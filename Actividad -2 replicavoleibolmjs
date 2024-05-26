@@ -92,3 +92,71 @@ Consultamos si el nuevo nodo primario, el nodo #2 es el principal o maestro, la 
 //paso 9: Detener el replicaSet de pruebas
 > voleibolmjsReplicaSet.stopSet()
 Con el comando detenemos la replicación de la base de datos EVENTO DEPORTIVO.
+
+CASOS DE PRUEBAS:
+
+•	Caso de Prueba 1: Creación del Replicaset
+Código de Prueba:
+voleibolmjsReplicaSet = new ReplSetTest ({name: "REPLICAVOLIEBOLMJS", nodes: 3});
+MiejReplicaSet.startSet();
+
+Resultados: Se espera que el conjunto de réplicas sea creado correctamente.
+Análisis: Verifica si la creación e inicio del conjunto de réplicas se realizó sin errores.
+
+•	Caso de Prueba 2: Ingresar documentos a las colecciones. 
+Código de prueba:
+Conexión al nodo primario del grupo de réplica
+conn = new Mongo("DESKTOP-4I68KFA:20000");
+testDB = conn.getDB("voleibolmjs");
+
+Inserción de datos en el nodo primario
+Conexión al nodo primario del grupo de réplica
+conn = new Mongo("DESKTOP-4I68KFA:20000");
+
+Obtenemos la BD sobre la que realizaremos la prueba en voleibolmjs en este caso
+testDB = conn.getDB("voleibolmjs");
+
+Preguntamos si es el nodo primario utilizando la función isMaster()
+testDB.isMaster();
+
+Inserción de registros en la colección 'deportistas'
+testDB.Deportistas.insert([
+
+Resultados: Los datos se insertan correctamente en el nodo primario.
+Análisis: Verifica si los datos se replican automáticamente a los nodos secundarios.
+
+•	Caso de Prueba 3: Comprobación de la Réplica en Nodos Secundarios
+Código de la prueba:
+Conexión al nodo secundario del grupo de réplica
+connSecondary = new Mongo(“DESKTOP-4I68KFA:20001");
+secondaryTestDB = connSecondary.getDB("voleibolmjs");
+
+Comprobación si el nodo secundario es maestro
+secondaryTestDB.isMaster();
+
+Resultados: Se espera que el nodo secundario sea un nodo de réplica y no el maestro.
+Análisis: Verifica si la replicación asincrónica está funcionando adecuadamente.
+
+•	Caso de Prueba 4: Prueba de Conmutación por Error (Failover)
+Código de prueba:
+Detener específicamente el nodo primario para simular una caída
+connPrimary = new Mongo("localhost:27017");
+primaryDB = connPrimary.getDB("voleibolmjs");
+
+Comprobamos si este nodo es el primario antes de detenerlo
+primaryDB.isMaster();
+
+Ahora detenemos el nodo primario
+voleibolmjsReplicaSet.stop(0);
+
+Resultados: Se espera que el nodo secundario tome el rol de primario después de la caída.
+Análisis: Verifica cómo el conjunto de réplicas maneja la conmutación por error y cómo se restablece la disponibilidad.
+ 
+•	caso de prueba 5: Open close.
+Código de prueba:
+Permite abrir y cerrar una base de datos
+voleibolmjsReplicaSet = new ReplSetTest({name: “REPLICAVOLEIBOLMJS”, nodes : 3})
+voleibolmjsReplicaSet.stopSet()
+
+Resultados: Iniciamos la réplica de la base de datos voleibolmjs y detenemos la replicación de la base de datos voleibolmjs.
+Análisis: Verifica cómo el conjunto de réplicas se inicie y detenga.

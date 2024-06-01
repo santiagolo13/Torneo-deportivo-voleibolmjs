@@ -1,0 +1,69 @@
+Requerimientos no funcionales 
+El proyecto realizado no solo requiere acceso a la base de datos con el nombre voleibolmjs las 27 horas de los 7 días de la semana, adicionalmente se necesita escalar el almacenamiento de los datos que se manejan en nuestra base de datos, de esta manera realizaremos una distribución equitativa de la información para no cargar uno de los nodos, para este objetivo se tendrá en cuenta lo siguientes requerimientos no funcionales.
+●	Como requerimiento principal es particionar la información de la base de datos voleibolmjs.
+●	Se debe realizar la partición de las colecciones en tres Shards, en los cuales se almacenará la información de forma equitativa.
+●	Cada uno de los Shards almacenara un porcentaje de información de las colecciones Deportistas, jugadores.
+●	Cada uno de los Shards estará represado con numero de puertos así: 
+“DESKTOP-4I68KFA:20000”
+“DESKTOP-4I68KFA:20001”
+“DESKTOP-4I68KFA:20002”
+●	El sistema debe garantizar el ingreso de información en las colecciones mencionadas.
+2. particionamientos de la base de datos voleibolmjs.
+Los particionamientos de la base de datos voleibolmjs esta configurada en cada instancia de mongodb 
+>shard “DESKTOP-4I68KFA:20001”
+●	Nos permite almacenar toda la información ingresada en cada uno de las colecciones.
+●	Permitirá mostrar la cantidad de información almacenada. 
+>shard “DESKTOP-4I68KFA:20000”
+>shard “DESKTOP-4I68KFA:20002”
+●	Inicialmente no almacenan información.
+●	Permitirán el particionamiento de la información almacenada en las colecciones de forma equitativa entre los tres shard.
+
+FASE 1: ARRANQUE DE LA CONSOLA DE MONGO.
+
+FASE 2: CREACIÓN DEL GRUPO DE PARTICIONADO PARA PRUEBAS.
+>cluster=new ShardingTest ({Shards:3, chunksize:1})
+Este comando nos permite crear 3 instancias en las cuales se realizará la partición de cada información.
+
+FASE 3: INSERCIÓN DE DATOS SOBRE EL BALANCEADOR.
+ >db=(new Mongo(“DESKTOP-4I68KFA:20006”)).getDB(“voleibolmjs”)
+En una consola diferente a la cual la tomaremos como el balanceador, en esta consola ejecutamos el comando anterior, este nos conecta a un puerto especial para manejar el balanceador y nos conecta con la base de datos voleibolmjs
+
+FASE 4: COMPROBACIÓN DE LA DISTRIBUCIÓN DE DATOS EN LOS NODOS.
+Shard1 
+>shard1 = new Mongo(DESKTOP-4I68KFA:20000”)
+>shard1DB = shard1.getDB(“voleibolmjs”)
+>shard1DB.Deportistas.count()
+
+Shard2
+>shard2 = new Mongo(DESKTOP-4I68KFA:20001”)
+>shard2DB = shard2.getDB(“voleibolmjs”)
+>shard2DB.Deportistas. count()
+
+Shard3 
+>shard3 = new Mongo(DESKTOP-4I68KFA:20002”)
+>shard3DB = shard3.getDB(“voleibolmjs”)
+>shard3DB.Deportistas. count()
+
+•	Como podemos ver el sistema nos permite ver que el sistema nos permite ver que la información de la colección Deportistas solo se esta almacenando en el Shard2, con el puerto 20001; esto nos indica que aun no esta habilitado el sistema de partición entre los 3 Shards.
+
+FASE 5: ACTIVACIÓN DE SHARDING.
+>shard1 = new Mongo(“DESKTOP-4I68KFA:20006”)
+>sh.status()
+Como observamos que aun no hay una partición de los datos vamos a verificar que el balance este activo, para esto ejecutamos los dos comandos anteriores.
+
+FASE 6: ACTIVACIÓN DEL BALANCEADOR DE CARGA.
+>sh.getBalancerState()
+Consultamos el estado del balanceador, usamos el comando anterior.
+
+FASE 7: VERIFICAMOS COMO QUEDO EL PARTICIONAMIENTOS DE LOS DATOS EN CADA NODO.
+>shard1 = new Mongo(“DESKTOP-4I68KFA:20000”)
+>shard1DB = shaerd1.getDB(“voleibolmjs”)
+>shard1DB.Deportitas.count()
+
+
+FASE 8: PARADA DEL CLÚSTER DE PARTICIONADO DE DAROS.
+>cluster.stop()
+Detenemos la partición de los documentos.
+
+FASE 9: CONOCER EL LISTADO DE LOS SHARDS ACTIVOS.
+>db.adminCommand( {listShards: 1 })

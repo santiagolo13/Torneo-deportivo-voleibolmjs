@@ -1,0 +1,23 @@
+// Ejecución de Casos de Prueba y Generación de Reporte:
+
+1.	Ejecución de casos de pruebas.
+Ejecución de la prueba #01
+Verificamos los tres shard se encuentre creados correctamente.
+
+Ejecución de la prueba #02
+Ingresar 80000 documentos en las colecciones de Deportistas, 3 documentos de colección a Jugadores.
+Deportistas.
+Jugadores.
+
+Ejecución de la prueba #03
+Verificar en cada shard los documentos de cada una de las colecciones.
+Deportistas.
+Jugadores.
+
+Ejecución de la prueba #04
+Verificar que los shard se encuentren activos, si no lo están realizar la activación.
+no esta activo.
+activacion.
+
+Ejecución de la prueba #05
+Validar la ejecución de la partición.

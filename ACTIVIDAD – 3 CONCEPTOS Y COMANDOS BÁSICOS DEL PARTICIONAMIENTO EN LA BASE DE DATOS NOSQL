@@ -67,3 +67,4 @@ Detenemos la partición de los documentos.
 
 FASE 9: CONOCER EL LISTADO DE LOS SHARDS ACTIVOS.
 >db.adminCommand( {listShards: 1 })
+Obtener el listado de shards activos.
